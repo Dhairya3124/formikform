@@ -1,23 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { GeneralForm } from './components/GeneralForm';
+import { MaleForm } from './components/MaleForm';
+import { FemaleForm } from './components/FemaleForm';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Results } from './components/Results';
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {/* The below code is used to render the routes for the application */}
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<GeneralForm />} />
+            <Route path="/maleform" element={<MaleForm />} />
+            <Route path="/femaleform" element={<FemaleForm />} />
+            <Route path="/results" element={<Results />} />
+          </Routes>
+        </BrowserRouter>
       </header>
     </div>
   );
